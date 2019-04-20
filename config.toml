@@ -38,7 +38,7 @@ disqusShortname = "yourdiscussshortname"
     name = "Github"
     icon = "fab fa-github fa-2x"
     weight = 1
-    url = "https://github.com/johndoe/"
+    url = "https://github.com/harshpreet93/"
 
 # Menu links
 [[menu.main]]
