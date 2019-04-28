@@ -12,9 +12,9 @@ In a previous job, the team that I was on mostly ran/developed quite a large mon
 
 Here's what the workflow looked like, a dev would write some code, get it merged into the repo. At the same time, there would be a background thread in the monolith that would keep pulling the repo at regular intervals of a few seconds or so and keep it up to date. Usually, at this step, most people would think the next steps are to build the code into an artifact and deploy it to a machine, but in our case, pulling the repo constantly was the build and deploy step all combined into one. Once the monolith had the code, it became available to run and the monolith could command an embedded interpreter to run the code. A dev could run it manually by pressing a button in a web ui or he/she could just put a cron expression at the top and the monolith would then schedule it according to that. 
 
-This is not a new idea. Many battle tested and industry standard applications rely on a similar methodology. HAProxy can be scripted with the lua programming language and can be compiled with an embedded lua interpreter (https://github.com/haproxy/haproxy/blob/master/doc/lua.txt). Nginx has a similar story (https://www.nginx.com/resources/wiki/modules/lua/). The TL;DR of this is that this is not a fringe idea and it can do wonders for productivity in environments where redeploying entire application/s every few minutes is not a viable option.
+This is not a new idea. Many battle tested and industry standard applications rely on a similar methodology. HAProxy can be scripted with the lua programming language and can be compiled with an [embedded lua interpreter](https://github.com/haproxy/haproxy/blob/master/doc/lua.txt). Nginx has a similar [module] (https://www.nginx.com/resources/wiki/modules/lua/). The TL;DR of this is that this is not a fringe idea and it can do wonders for productivity in environments where redeploying entire application/s every few minutes is not a viable option.
 ## How do we do this in Golang?
-Since the monolith I mentioned above was Java based, I started wondering how a similar architecture could be enabled with Golang. Basically, I want to be able to commit my Golang "scripts" a repo and then be auto discovered, loaded into the supervisor app and be runnable, all without going through the build and deploy step. Interestingly, Go 1.8, which is a fairly recent development, got a feature (https://golang.org/pkg/plugin/) to make exactly this easier! So let's get down to it and create a POC application that brings the embedded scripting-like experience to the world of Go.
+Since the monolith I mentioned above was Java based, I started wondering how a similar architecture could be enabled with Golang. Basically, I want to be able to commit my Golang "scripts" a repo and then be auto discovered, loaded into the supervisor app and be runnable, all without going through the build and deploy step. Interestingly, Go 1.8, which is a fairly recent development, got a [feature](https://golang.org/pkg/plugin/) to make exactly this easier! So let's get down to it and create a POC application that brings the embedded scripting-like experience to the world of Go.
 
 The first step is we need to keep an up to date copy of the repo that contains the plugin code. Luckily, there's an excellent library that does exactly that (https://github.com/src-d/go-git). Here's the bulk of the code that clones the plugin repo:
 ```
@@ -101,7 +101,7 @@ hello, world from pluginD
 hello, world from pluginE
 ```
 
-All the code for this is available in the repo https://github.com/harshpreet93/go-dynamic-code-loading-blog. It can just be run by cloning and running `go run main.go` from within the repo root.
+All the code for this is available in this [repo] (https://github.com/harshpreet93/go-dynamic-code-loading-blog). It can just be run by cloning and running `go run main.go` from within the repo root.
 
 ## Reflections
 
