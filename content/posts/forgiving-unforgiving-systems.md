@@ -1,5 +1,5 @@
 +++ 
-date = "2025-12-31"
+date = "2025-12-30"
 title = "Forgiving and unforgiving systems"
 slug = "forgiving-unforgiving-systems" 
 tags = []
@@ -26,7 +26,7 @@ In business, velocity of delivery and productivity is important. Recently, I hav
 - Spread complexity to other systems that integrate with them.
 - Do not make it particularly easier for builders and operators to contribute as they get more experience on them.
 
-### How/why do teams and companies build unforgiving systems?**
+### How/why do teams and companies build unforgiving systems?
 
 I want to discuss how to build forgiving systems, but I think it is helpful to discuss why and how teams end up in situations where they build unforgiving systems. That will help us frame the environment needed for forgiving systems later.
 
@@ -34,16 +34,16 @@ The following is a narration of my experiences in a team that ended up building 
 
 A few years ago, I was on a team that was building a SaaS product that was intended to be whitelabeled and sold to specialized consulting firms, who would then sell it on to end customers. This was a product that did not have a validated thesis. In essence, the team did not know whether the product had a market and was trying to prove it. Product was told by the consulting firms that they were fairly confident that there was a market for the product and they needed a prototype to validate it with their own end customers. In retrospect, I feel this is the point where things started to go wrong. Instead of thinking scrappily and building a simple three tier application and validating our ideas, we decided to do something completely different instead.
 
-![](../images/3layer.png)
+![](/images/3layer.png)
 
 During the time that we were building this application, the org was also trying to build two other SaaS applications for similar, but different domains. The org as a whole decided to mandate that these three applications must reuse any component that is remotely similar. This really was fodder for the [Merchants of Complexity](https://world.hey.com/dhh/merchants-of-complexity-4851301b) on the org to build castles of abstractions. Now, instead of an engineer designing and implementing an abstraction for their application, they would now need to consult with at least two other engineers from two other teams and verify if they had a need for something similar and then factor it into a reusable library. This led to endless meetings, design reviews, and status check ins to embellish the careers of the complexity merchants. We ended up with many interfaces/functions that looked something like the following:
 
 ```
 {
 	"field1": .... // needed by saas app 1
-	"OptionaField2": ... // provided by saas app 2 sometimes
-	"field2": ... // provided by saas app 1 and 2, but not 3
-	"field3": ... // provided by saas app 3 and 2, but not 1
+	"Field2": ... // provided by saas app 2 sometimes
+	"field3": ... // provided by saas app 1 and 2, but not 3
+	"field4": ... // provided by saas app 3 and 2, but not 1
 }
 ```
 
@@ -72,7 +72,8 @@ Let’s sum up the mistakes this org made that led to them building such a slow 
     2. Assuming crazy success on day 1 and building for it without evidence will lead to unnecessarily overcomplicated systems that will actually slow down your value delivery to customers.
 
 Visually expressed, this is what we did:
-![](../images/app-design-1.png)
+
+![](/images/app-design-1.png)
 
 We spent years building these systems, so what happened? Did we get rip roaring success? Surely, the orchestration mechanisms and reusable abstractions must’ve helped handle the thousands of new customers that surely must’ve flocked to use our application right?
 
@@ -89,6 +90,6 @@ Now, let’s talk about how the team could’ve validated their products without
 
 Now, let’s get a bit more concrete and see how this could’ve saved the team a bunch of time, money, and resources. Let’s imagine a scenario where the team did not make the decisions it did and decided to take a different route.
 
-![](../images/app-design-2.png)
+![](/images/app-design2.png)
 
 In the above scenario, the team could’ve made contact with reality much faster, in months rather than years and could’ve then chosen to spend it’s resources on either improving the core product or shutting it down earlier to save those resources for other projects.

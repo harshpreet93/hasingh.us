@@ -1,51 +1,62 @@
 baseurl = "https://hasingh.us"
 title = "harshpreet singh"
-theme = "coder"
+theme = "hugo-coder"
 languagecode = "en"
 defaultcontentlanguage = "en"
 
-paginate = 20
-canonifyurls = true
 
-pygmentsstyle = "bw"
-pygmentscodefences = true
-pygmentscodefencesguesssyntax = true
+[pagination]
+    pagerSize = 20
 
-disqusShortname = "hasingh-us"
+[services]
+[services.disqus]
+shortname = "hasingh-us"
+
+[markup.highlight]
+style = "github-dark"
 
 [params]
-    author = "Harshpreet Singh"
-    info = "Software Engineer - Site Reliability/DevOps"
-    description = "Harshpreet Singh's personal website"
-    keywords = "blog,developer,personal"
-    avatarurl = "/images/blog-pic.JPG"
+  author = "Harshpreet Singh"
+  info = "Software Enginner"
+  description = "Harshpreet Singh's personal website"
+  keywords = "blog,developer,personal"
+  avatarurl = "images/blog-pic.JPG"
+  #gravatar = "john.doe@example.com"
 
-    favicon_32 = "/img/favicon-32x32.png"
-    favicon_16 = "/img/favicon-16x16.png"
+  faviconSVG = "/img/favicon.svg"
+  favicon_32 = "/img/favicon-32x32.png"
+  favicon_16 = "/img/favicon-16x16.png"
 
-    #footercontent = "Enter a text here."
+  since = 2019
 
-    hidecredits = true
-    hidecopyright = true
+  enableTwemoji = true
 
-    rtl = false
+  colorScheme = "auto"
+  hidecolorschemetoggle = false
 
-    math = true
-    custom_css = ["css/custom.css"]
+  # customCSS = ["css/custom.css"]
+  # customSCSS = ["scss/custom.scss"]
+  # customJS = ["js/custom.js"]
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+  author = "authors"
 
 # Social links
 [[params.social]]
-    name = "Github"
-    icon = "fab fa-github fa-2x"
-    weight = 1
-    url = "https://github.com/harshpreet93/"
+  name = "Github"
+  icon = "fa-brands fa-github fa-2x"
+  weight = 1
+  url = "https://github.com/harshpreet93/"
 
 # Menu links
 [[menu.main]]
-    name = "Blog"
-    weight = 1
-    url  = "/posts/"
+  name = "Blog"
+  weight = 1
+  url  = "posts/"
 [[menu.main]]
-    name = "About"
-    weight = 2
-    url = "/about/"
+  name = "About"
+  weight = 2
+  url = "about/"
